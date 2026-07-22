@@ -1,0 +1,11 @@
+[tools]
+lua-language-server = "latest"
+stylua = "latest"
+
+[tasks.fmt]
+description = "Format Lua sources with stylua"
+run = "stylua ."
+
+[tasks.check]
+description = "Check formatting and lint Lua sources"
+run = ["stylua --check .", "lua-language-server --check . --checklevel Warning"]
