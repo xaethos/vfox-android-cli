@@ -15,11 +15,34 @@ WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI in
 ```
 
 Android CLI is the replacement for `sdkmanager`'s package management.
-With it, `cmdline-tools` and any other package can be installed.
+SDK packages can be installed with `android sdk install`.
+
+> [!NOTE] The `cmdline-tools` packages in particular cannot be installed with this
+> CLI tool.
 
 This plugin also resolved the unpleasant issue of `android-sdk` creating a new
 ANDROID_HOME for each version of `cmdline-tools`, where all other packages had
 to be reinstalled separately.
+
+## Usage
+
+Add the plugin (only needs to be done once per machine):
+
+```bash
+mise plugins add android-cli vfox:xaethos/vfox-android-cli
+```
+
+For local development, link the checked-out repository:
+
+```bash
+mise plugins link android-cli path/to/vfox-android-cli
+```
+
+Then install and use it as any other tool:
+
+```bash
+mise use android-cli@latest
+```
 
 ## Known issues
 
